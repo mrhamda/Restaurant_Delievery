@@ -1,0 +1,48 @@
+{
+  "name": "resturang",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@gsap/react": "^2.1.1",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/paypal-server-sdk": "^0.6.0",
+    "@paypal/react-paypal-js": "^8.7.0",
+    "@prisma/client": "^5.21.1",
+    "@stripe/stripe-js": "^4.9.0",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "flowbite": "^2.5.2",
+    "flowbite-react": "^0.10.2",
+    "gsap": "^3.12.5",
+    "next": "14.2.15",
+    "next-connect": "^1.0.0",
+    "nodemailer": "^6.9.16",
+    "react": "^18",
+    "react-dom": "^18",
+    "stripe": "^17.2.1",
+    "uuid": "^11.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.16",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
+    "postcss": "^8",
+    "prisma": "^5.21.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

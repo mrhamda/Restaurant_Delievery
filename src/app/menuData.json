@@ -1,0 +1,105 @@
+[
+    {
+        "title": "Pepperoni Pizza",
+        "price": 80,
+        "desc": "A pepperoni pizza is a popular dish featuring a round crust topped with tomato sauce, mozzarella cheese, and slices of spicy pepperoni sausage, often baked until crispy.",
+        "url": "/images/pizza01.jpg",
+        "_type": "Dinner",
+        "index": 0
+    },
+    {
+        "title": "Water",
+        "price": 5,
+        "desc": "Refreshing water.",
+        "url": "/images/water.jpg",
+        "_type": "Drinks",
+        "index": 2
+    } 
+    ,
+    {
+        "title": "Chicken Hamburgare",
+        "price": 65,
+        "desc": "Grilled chicken breast topped with fresh lettuce, ripe tomato, and creamy mayonnaise, served on a toasted bun. Comes with a side of crispy fries or a garden salad.",
+        "url": "/images/chickenhamburgar.jpeg",
+        "_type": "Dinner",
+        "index": 3
+    }
+
+    ,
+    {
+        "title": "Chicken Kebab",
+        "price": 65,
+        "desc": "Tender marinated chicken skewers grilled to perfection, served with a side of fragrant rice, fresh salad, and your choice of tangy garlic sauce or spicy chutney.",
+        "url": "/images/chickenkebab.jpeg",
+        "_type": "Dinner",
+        "index": 4
+    }
+    ,
+    {
+        "title": "Döner Chicken",
+        "price": 45,
+        "desc": "Succulent slices of marinated chicken, slow-cooked on a vertical rotisserie, served in warm pita bread with crisp lettuce, juicy tomatoes, and drizzled with garlic sauce and spicy chili sauce. Accompanied by fries or a side salad.",
+        "url": "/images/dönerchicken.jpg",
+        "_type": "Dinner",
+        "index": 5
+    }
+
+    ,
+    {
+        "title": "Falafel Wrap",
+        "price": 35,
+        "desc": "Crispy, golden falafel balls wrapped in a warm pita with fresh cucumbers, tomatoes, and lettuce. Finished with a drizzle of tahini sauce and served with a side of tangy pickles.",
+        "url": "/images/FalafelWrap.jpg",
+        "_type": "Wrap",
+        "index": 6
+    }
+
+    ,
+    {
+        "title": "Ice Cream Sundae",
+        "price": 80,
+        "desc": "Delicious scoops of your choice of ice cream served in a tall glass, topped with rich chocolate or caramel sauce, whipped cream, and a cherry on top. Choose from sprinkles or nuts for added crunch!",
+        "url": "/images/icecream01.jpg",
+        "_type": "Dessert",
+        "index": 7
+    }
+
+    ,
+    {
+        "title": "Ice Cream Cone",
+        "price": 60,
+        "desc": "A classic treat featuring a generous scoop of your favorite ice cream served in a crispy cone. Choose from a variety of flavors, topped with sprinkles or a cherry for extra delight!",
+        "url": "/images/icecream.jpeg",
+        "_type": "Dessert",
+        "index": 8
+    }
+
+    ,
+    {
+        "title": "Kebbab Wrap",
+        "price": 55,
+        "desc": "Grilled kebab meat wrapped in soft pita bread, filled with fresh vegetables, and drizzled with tangy garlic sauce and spicy harissa. Served with a side of crispy fries or a salad.",
+        "url": "/images/kebabwrap.jpg",
+        "_type": "Wrap",
+        "index": 9
+    }
+
+    ,
+    {
+        "title": "Meat Döner",
+        "price": 40,
+        "desc": "Sliced marinated beef or lamb, slow-cooked on a vertical rotisserie, served in warm pita or flatbread. Topped with fresh lettuce, tomatoes, onions, and drizzled with yogurt sauce and spicy chili sauce.",
+        "url": "/images/metadöner.jpeg",
+        "_type": "Dinner",
+        "index": 10
+    }
+    ,
+    {
+        "title": "Orange Juice",
+        "price": 25,
+        "desc": "Refreshing and zesty juice made from freshly squeezed oranges, served chilled. Enjoy the natural sweetness and vibrant flavor in every sip, perfect for any meal or as a revitalizing drink!",
+        "url": "/images/orangejuice.jpeg",
+        "_type": "Drinks",
+        "index": 11
+    }
+]
