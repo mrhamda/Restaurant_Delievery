@@ -6,7 +6,6 @@ import { Modal } from "@/app/components/Modal";
 import { useCart } from "@/app/context/CartContext";
 import menuData from "@/app/menuData.json";
 
-// Import your JSON data
 export type AmountTypes = {
   title: string;
   amount: number;
@@ -36,8 +35,8 @@ export function ShopCartComp() {
 
   const menu: shopCartType[] = menuData.map((item, index) => ({
     ...item,
-    index: index, // Ensure index is set properly
-    handleAdd: handleAdd, // Add the handleAdd function
+    index: index, 
+    handleAdd: handleAdd, 
   }));
 
   useEffect(() => {
