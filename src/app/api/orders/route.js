@@ -10,7 +10,6 @@ import {
 
 import menuData from '@/app/menuData.json'
 
-// Create PayPal client
 const client = new Client({
     clientCredentialsAuthCredentials: {
         oAuthClientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
@@ -27,9 +26,7 @@ const client = new Client({
 
 const ordersController = new OrdersController(client);
 
-/**
- * Create an order to start the transaction.
- */
+
 const createOrder = async (cart) => {
     
     const _items = cart
@@ -44,11 +41,11 @@ const createOrder = async (cart) => {
                     quantity: item.amount.toString(),
                 };
             }
-            return null; // Explicitly return null for items not included
+            return null;
         })
-        .filter(item => item !== null); // Filter out null items
+        .filter(item => item !== null); 
 
-    console.log("Items to be sent to PayPal:", _items); // Log items for debugging
+    console.log("Items to be sent to PayPal:", _items); 
 
     // Calculate the total amount
     const total = cart.reduce((accumulatedTotal, item, index) => {
@@ -63,11 +60,11 @@ const createOrder = async (cart) => {
             purchaseUnits: [
                 {
                     amount: {
-                        currencyCode: "SEK", // Corrected naming
+                        currencyCode: "SEK", 
                         value: total.toString(),
                         breakdown: {
-                            itemTotal: { // Corrected naming
-                                currencyCode: "SEK", // Corrected naming
+                            itemTotal: {
+                                currencyCode: "SEK", 
                                 value: total.toString(),
                             },
                         },
@@ -95,7 +92,6 @@ const createOrder = async (cart) => {
     }
 };
 
-// API route handler
 export async function POST(req) {
     try {
         const { cart } = await req.json(); // Parse JSON body
