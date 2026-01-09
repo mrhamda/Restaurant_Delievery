@@ -25,10 +25,9 @@ model Order {
 
 model OrderItem {
   id        String    @id @default(uuid())
-  product   String    // Product name
-  quantity  Int       // Quantity of the product
-  price     Float     // Price of the product
-  // No orderId field needed
+  product   String    
+  quantity  Int       
+  price     Float     
 
   Order Order[]
 }
