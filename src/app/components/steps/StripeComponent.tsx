@@ -34,7 +34,7 @@ export default function StripeComponent() {
             name: item.title,
             unitAmount: {
               currencyCode: "SEK",
-              value: menuData[index].price.toString(), // Keep price in SEK
+              value: menuData[index].price.toString(),
             },
             quantity: item.amount.toString(),
           };
@@ -45,18 +45,18 @@ export default function StripeComponent() {
   
     if (_items.length === 0) {
       console.error("No items in the cart to submit.");
-      return; // Avoid making a request with empty items
+      return;
     }
   
     const total = allamount.reduce((accumulatedTotal, item, index) => {
       return accumulatedTotal + item.amount * menuData[index].price;
-    }, 0); // Total is in SEK
+    }, 0); 
   
-    console.log("Total amount (in SEK):", total); // Log total amount in SEK
+    console.log("Total amount (in SEK):", total);
   
     if (total < 3.00) {
       console.error("Total amount must be at least 3.00 SEK. Current total:", total);
-      return; // Don't proceed with the request
+      return; 
     }
   
     const stripe = await stripePromise;
@@ -68,14 +68,13 @@ export default function StripeComponent() {
     const address = localStorage.getItem("address") || '';
     const city = localStorage.getItem("city") || '';
 
-    // Call your backend to create the Checkout Session
     const response = await fetch("/api/checkout_sessions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        total: total * 100, // Convert total to öre for Stripe
+        total: total * 100,
         items: _items,
         customer: {
           firstName,
