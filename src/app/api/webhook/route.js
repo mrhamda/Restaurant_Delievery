@@ -14,31 +14,29 @@ export async function POST(req) {
   let event;
 
   try {
-    const body = await req.text(); // Retrieve raw body to verify signature
+    const body = await req.text(); 
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
   } catch (err) {
     console.error(`Webhook signature verification failed: ${err.message}`);
     return new Response('Webhook Error', { status: 400 });
   }
 
-  // Handle the event
   switch (event.type) {
     case 'checkout.session.completed':
       const session = event.data.object;
-      // Perform actions with the session data, e.g., save to database
       const parsedItems = JSON.parse(session.metadata.items);
       const order = await prisma.order.create({
         data: {
           firstName: session.metadata.firstName,
           lastName: session.metadata.lastName,
-          email: session.metadata.email, // Corrected from gmail to email
+          email: session.metadata.email, 
           address: session.metadata.address,
           city: session.metadata.city,
           items: {
             create: parsedItems.map(item => ({
-              product: item.name,  // Adjust based on your actual item structure
+              product: item.name,  
               quantity: parseInt(item.quantity),
-              price: parseFloat(item.unitAmount.value), // Adjust based on your actual item structure
+              price: parseFloat(item.unitAmount.value), 
             })),
           },
         },
