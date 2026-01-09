@@ -4,19 +4,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-// Create PayPal client
 
-// Named export for the POST method
 export async function POST(req) {
   try {
     const body = await req.json();
 
-    // Check if the body contains items
     if (!body.items || body.items.length === 0) {
       throw new Error("No items provided.");
     }
 
-    // Create Checkout Session from body params
     const session = await stripe.checkout.sessions.create({
       line_items: body.items.map(item => ({
         price_data: {
