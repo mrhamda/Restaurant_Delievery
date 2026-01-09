@@ -17,21 +17,19 @@ type Order = {
 
 export const AdminComp = () => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [orders, setOrders] = useState<Order[]>([]); // Store orders in state
+  const [orders, setOrders] = useState<Order[]>([]);
   const userContainerRef = useRef<HTMLDivElement>(null);
-  // Function to check password and set admin status
   const checkPassword = () => {
     const password = prompt("What's the password?");
     if (password === process.env.NEXT_PUBLIC_PASSWORD_URL) {
       setIsAdmin(true);
-      alert("Access granted!"); // Optionally inform the user
+      alert("Access granted!"); 
     } else {
-      alert("Access denied!"); // Inform the user if the password is incorrect
+      alert("Access denied!"); 
     }
   };
 
   useEffect(() => {
-    // Check for admin access when the component mounts
     if (localStorage.getItem("Admin") !== "TRUE") {
       checkPassword();
     } else {
@@ -51,21 +49,19 @@ export const AdminComp = () => {
   }
 
   useEffect(() => {
-    // Fetch orders if the user is an admin
     if (isAdmin) {
       fetchOrders();
 
       const intervalId = setInterval(() => {
-        fetchOrders(); // Re-fetch orders every 3 seconds
+        fetchOrders(); 
       }, 3000);
 
-      return () => clearInterval(intervalId); // Clean up on unmount
+      return () => clearInterval(intervalId); 
     }
-  }, [isAdmin]); // Run effect only when isAdmin changes
+  }, [isAdmin]); 
 
-  // Render nothing or a loading message if not an admin
   if (!isAdmin) {
-    return <div>Loading...</div>; // You can customize this as needed
+    return <div>Loading...</div>; 
   }
 
   return (
