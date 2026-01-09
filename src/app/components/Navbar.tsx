@@ -130,7 +130,6 @@ export function Navbar() {
   };
 
   useEffect(() => {
-    // Reinitialize Flowbite specifically for the SVG modal trigger
     const svgTrigger = document.querySelector(
       "[data-modal-toggle='shopModal']"
     );
