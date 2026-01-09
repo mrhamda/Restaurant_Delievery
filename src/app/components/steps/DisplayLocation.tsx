@@ -29,37 +29,31 @@ export function DisplayLocation() {
 
   useEffect(() => {
     const handleChangeMap = new Map();
-    // Initialize values from sessionStorage on mount
     allInfo.forEach((element) => {
       const inputElement = element.current;
       if (inputElement) {
         const storedValue = localStorage.getItem(inputElement.id);
         if (storedValue) {
-          inputElement.value = storedValue; // Set initial value from sessionStorage
+          inputElement.value = storedValue; 
         }
       }
     });
 
     
-    // Define the handleChange function
     const handleChange = () => {
-      const errors = new Set(); // Use a Set to manage unique errors
+      const errors = new Set(); 
 
       
-      // Check all inputs for empty values and validate inputs
       allInfo.forEach((element) => {
         const inputElement = element.current;
 
         if (inputElement) {
-          // Update sessionStorage with the current input value
           localStorage.setItem(inputElement.id, inputElement.value);
 
-          // Check for empty input
           if (inputElement.value.trim() === "") {
             errors.add("Fill the empty inputs");
           }
 
-          // Gmail validation check
           if (
             inputElement === gmailRef.current &&
             !gmailPattern.test(inputElement.value)
@@ -69,10 +63,8 @@ export function DisplayLocation() {
         }
       });
 
-      // Convert Set to Array for display
       const errorsArray = Array.from(errors);
 
-      // Update error message display
       if (errorsArray.length > 0) {
         const errVal = errorsArray.join(", ");
         setDisabledAlert(false);
@@ -86,16 +78,14 @@ export function DisplayLocation() {
     };
     handleChange();
 
-    // Attach event listeners to each element
     allInfo.forEach((element) => {
       const inputElement = element.current;
       if (inputElement) {
-        inputElement.addEventListener("input", handleChange); // Use 'input' for real-time feedback
-        handleChangeMap.set(inputElement, handleChange); // Save for cleanup
+        inputElement.addEventListener("input", handleChange); 
+        handleChangeMap.set(inputElement, handleChange);
       }
     });
 
-    // Cleanup function to remove event listeners
     return () => {
       handleChangeMap.forEach((handleChange, inputElement) => {
         inputElement.removeEventListener("input", handleChange);
@@ -157,7 +147,7 @@ export function DisplayLocation() {
 
   useEffect(() => {
     if (paypalInterRef.current) {
-      paypalInterRef.current.style.display = "block"; // Show PayPal
+      paypalInterRef.current.style.display = "block"; 
     }
   });
   return (
