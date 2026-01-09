@@ -11,7 +11,6 @@ import {
     OrdersController,
 } from "@paypal/paypal-server-sdk";
 
-// Create PayPal client
 const client = new Client({
     clientCredentialsAuthCredentials: {
         oAuthClientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
@@ -23,9 +22,7 @@ const client = new Client({
 
 const ordersController = new OrdersController(client);
 
-/**
- * Capture payment for the created order.
- */
+
 const captureOrder = async (orderID) => {
     const collect = {
         id: orderID,
@@ -39,7 +36,7 @@ const captureOrder = async (orderID) => {
             httpStatusCode: httpResponse.statusCode,
         };
     } catch (error) {
-        console.error("Error during order capture:", error); // Add this line
+        console.error("Error during order capture:", error); 
         if (error instanceof ApiError) {
             throw new Error(error.message);
         }
@@ -47,9 +44,8 @@ const captureOrder = async (orderID) => {
     }
 };
 
-// API route handler
 export async function POST(req, { params }) {
-    const { orderID } = params; // Get orderID from the URL
+    const { orderID } = params; 
 
     if (!orderID) {
         return new Response(JSON.stringify({ error: "Order ID is required" }), {
@@ -70,16 +66,16 @@ export async function POST(req, { params }) {
                 if (item.amount > 0) {
                     return {
                         name: item.title,
-                        unitAmount: { // Corrected naming
-                            currencyCode: "SEK", // Corrected naming
+                        unitAmount: { 
+                            currencyCode: "SEK", 
                             value: menuData[index].price.toString(),
                         },
                         quantity: item.amount.toString(),
                     };
                 }
-                return null; // Explicitly return null for items not included
+                return null; 
             })
-            .filter(item => item !== null); // Filter out null items
+            .filter(item => item !== null); 
 
             const order = await prisma.order.create({
                 data: {
