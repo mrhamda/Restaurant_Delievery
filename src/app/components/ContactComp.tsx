@@ -38,9 +38,9 @@ export function ContactComp() {
       opacity: 0,
       ease: "circ",
       scrollTrigger: {
-        trigger: ".up", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".up", 
+        start: "top 80%", 
+        toggleActions: "play none none none", 
       },
     });
 
@@ -51,9 +51,9 @@ export function ContactComp() {
       x: "-10%",
       duration: 1,
       scrollTrigger: {
-        trigger: ".left", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".left", 
+        start: "top 80%", 
+        toggleActions: "play none none none", 
       },
     });
 
@@ -62,9 +62,9 @@ export function ContactComp() {
       y: "-10%",
       duration: 1,
       scrollTrigger: {
-        trigger: ".left", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".left",
+        start: "top 80%",
+        toggleActions: "play none none none", 
       },
     });
 
@@ -73,44 +73,38 @@ export function ContactComp() {
       y: "26%",
       duration: 1,
       scrollTrigger: {
-        trigger: ".down", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".down", 
+        start: "top 80%", 
+        toggleActions: "play none none none",
       },
     });
   });
 
   useEffect(() => {
     const handleChangeMap = new Map();
-    // Initialize values from sessionStorage on mount
     allInfo.forEach((element) => {
       const inputElement = element.current;
       if (inputElement) {
         const storedValue = localStorage.getItem(inputElement.id);
         if (storedValue) {
-          inputElement.value = storedValue; // Set initial value from sessionStorage
+          inputElement.value = storedValue; 
         }
       }
     });
 
-    // Define the handleChange function
     const handleChange = () => {
-      const errors = new Set(); // Use a Set to manage unique errors
+      const errors = new Set();
 
-      // Check all inputs for empty values and validate inputs
       allInfo.forEach((element) => {
         const inputElement = element.current;
 
         if (inputElement) {
-          // Update sessionStorage with the current input value
           localStorage.setItem(inputElement.id, inputElement.value);
 
-          // Check for empty input
           if (inputElement.value.trim() === "") {
             errors.add("Fill the empty inputs");
           }
 
-          // Gmail validation check
           if (
             inputElement === gmailRef.current &&
             !gmailPattern.test(inputElement.value)
@@ -120,10 +114,8 @@ export function ContactComp() {
         }
       });
 
-      // Convert Set to Array for display
       const errorsArray = Array.from(errors);
 
-      // Update error message display
       if (errorsArray.length > 0) {
         const errVal = errorsArray.join(", ");
         setDisabledAlert(false);
@@ -136,16 +128,14 @@ export function ContactComp() {
     };
     handleChange();
 
-    // Attach event listeners to each element
     allInfo.forEach((element) => {
       const inputElement = element.current;
       if (inputElement) {
-        inputElement.addEventListener("input", handleChange); // Use 'input' for real-time feedback
-        handleChangeMap.set(inputElement, handleChange); // Save for cleanup
+        inputElement.addEventListener("input", handleChange); 
+        handleChangeMap.set(inputElement, handleChange); 
       }
     });
 
-    // Combine toggle functionality in this effect
     const currentCheckbox = checkBoxRef.current;
     const handleToggle = () => {
       setToggled((prevToggled) => {
@@ -167,7 +157,6 @@ export function ContactComp() {
 
     currentCheckbox?.addEventListener("change", handleToggle);
 
-    // Cleanup function to remove event listeners
     return () => {
       handleChangeMap.forEach((handleChange, inputElement) => {
         inputElement.removeEventListener("input", handleChange);
@@ -249,7 +238,7 @@ export function ContactComp() {
             );
           }
 
-          const result = await response.json(); // or await response.text() if it's plain text
+          const result = await response.json(); 
           console.log("Email sent:", result);
         } catch (err) {
           console.error("Error sending email:", err);
@@ -266,7 +255,7 @@ export function ContactComp() {
 
   useEffect(() => {
     if (submitRef.current) {
-      submitRef.current.style.display = "block"; // Show PayPal
+      submitRef.current.style.display = "block";
     }
   });
   return (
