@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function About() {
  
-  gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger); 
   useGSAP(() => {
  
     gsap.from(".about-sec", {
@@ -17,9 +17,9 @@ export function About() {
       opacity: 0,
       ease: "circ",
       scrollTrigger: {
-        trigger: ".about-sec", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".about-sec", 
+        start: "top 80%",
+        toggleActions: "play none none none", 
       },
     });
 
@@ -29,9 +29,9 @@ export function About() {
       opacity: 0,
       ease: "circ",
       scrollTrigger: {
-        trigger: ".text-anim", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".text-anim", 
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
     });
 
@@ -41,9 +41,9 @@ export function About() {
       opacity: 0,
       ease: "circ",
       scrollTrigger: {
-        trigger: ".map-info-anim", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".map-info-anim", 
+        start: "top 80%", 
+        toggleActions: "play none none none",
       },
     });
 
@@ -53,9 +53,9 @@ export function About() {
       opacity: 0,
       ease: "circ",
       scrollTrigger: {
-        trigger: ".vid", // Element to watch for scroll position
-        start: "top 80%", // Trigger when the top of .about-sec reaches 80% of the viewport height
-        toggleActions: "play none none none", // Only play the animation on scroll into view
+        trigger: ".vid",
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
     });
   });
@@ -64,13 +64,13 @@ export function About() {
       <div>
         <div className="aspect-w-16 aspect-h-9 vid">
           <iframe
-            className="w-full" // Ensure iframe takes full width and height
+            className="w-full"
             height={500}
             src="https://www.youtube.com/embed/fZ3PqU2EoOM?si=d2-JmHB8vnZfDuBH&autoplay=1&mute=1&playlist=fZ3PqU2EoOM&loop=1"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay;"
-            frameBorder="0" // Add this for better compliance with HTML5
-            allowFullScreen // Enable full-screen mode
+            frameBorder="0" 
+            allowFullScreen 
           ></iframe>
         </div>
 
