@@ -45,10 +45,10 @@ export function UserInfoAdmin({
       }
 
       const data = await response.json();
-      alert(data.message); // Show success message
+      alert(data.message); 
     } catch (error) {
       console.error("Error deleting order:", error);
-      alert("Failed to delete the order. Please try again."); // Show error message
+      alert("Failed to delete the order. Please try again."); 
     }
   }
 
@@ -67,7 +67,7 @@ export function UserInfoAdmin({
           <button
             type="button"
             className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 flex items-center"
-            onClick={(e) => deleteOrder()} // Call the deleteOrder function directly
+            onClick={(e) => deleteOrder()}
           >
             <FontAwesomeIcon icon={faTimes} className="mr-2" />
             Delete
