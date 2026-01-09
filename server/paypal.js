@@ -12,11 +12,9 @@ const {
     PORT = 8080,
 } = process.env;
 
-// Setup PayPal client
 const environment = new paypal.core.SandboxEnvironment(PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET);
 const client = new paypal.core.PayPalHttpClient(environment);
 
-// Create an order
 const createOrder = async (cart) => {
     const request = new paypal.orders.OrdersCreateRequest(); // Create request for creating an order
     request.requestBody({
@@ -25,7 +23,7 @@ const createOrder = async (cart) => {
             {
                 amount: {
                     currencyCode: "USD",
-                    value: "100", // Use dynamic value based on cart
+                    value: "100", 
                 },
             },
         ],
@@ -43,7 +41,6 @@ const createOrder = async (cart) => {
     }
 };
 
-// createOrder route
 app.post("/api/orders", async (req, res) => {
     try {
         const { cart } = req.body;
@@ -55,7 +52,6 @@ app.post("/api/orders", async (req, res) => {
     }
 });
 
-// Capture payment for the created order
 const captureOrder = async (orderID) => {
     const request = new paypal.orders.OrdersCaptureRequest(orderID);
     request.requestBody({}); // Add capture options if needed
@@ -72,7 +68,6 @@ const captureOrder = async (orderID) => {
     }
 };
 
-// captureOrder route
 app.post("/api/orders/:orderID/capture", async (req, res) => {
     try {
         const { orderID } = req.params;
