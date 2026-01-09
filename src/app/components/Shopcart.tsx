@@ -32,7 +32,6 @@ export function Shopcart({
 }: shopCartType): ReactElement {
   const [count, setCount] = useState(0);
 
-  // Function to increment the count
   const incrementCount = () => {
     setCount((prev) => prev + 1);
   };
@@ -52,16 +51,16 @@ export function Shopcart({
 
     gsap.fromTo(
       ".elements-anim",
-      { backgroundColor: "red", opacity: 0, scale: 0.5 },  // Start with red background and initial height
+      { backgroundColor: "red", opacity: 0, scale: 0.5 },  
       {
         scale: 1,
-        backgroundColor: "",  // Transition to original color
-        opacity: 1,           // Fade in to full opacity
-        duration: 0.35,       // Duration for the animation
+        backgroundColor: "",  
+        opacity: 1,          
+        duration: 0.35,       
         scrollTrigger: {
-          trigger: ".elements-anim",  // Element to watch for scroll position
-          start: "top 80%",           // Trigger when the top of .elements-anim reaches 80% of the viewport height
-          toggleActions: "play none none none"  // Play the animation on scroll into view
+          trigger: ".elements-anim", 
+          start: "top 80%",           
+          toggleActions: "play none none none" 
         }
       }
     );
@@ -117,8 +116,7 @@ export function Shopcart({
                   </button>
                 </div>
               ) : (
-                // Reserve space even if buttons are not rendered
-                <div className="h-16"></div> // Adjust the height as needed
+                <div className="h-16"></div>
               )}
               {allamount[index].amount === 0 && (
                 <a
